@@ -13,11 +13,14 @@
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
+    "csv-parse": "^5.0.4",
     "express": "^4.17.3",
+    "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
     "multer": "^1.4.4",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
+    "path": "^0.12.7",
     "sequelizer": "^1.1.4"
   }
 }
