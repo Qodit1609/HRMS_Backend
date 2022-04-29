@@ -33,7 +33,7 @@ exports.Readfile =(req, res, next) => {
             })
         }
         res.status(200).send(result)
-        console.log("Result", result);
+        // console.log("Result", result);
     });
  
 }

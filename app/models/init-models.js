@@ -4,6 +4,7 @@ var _attendance = require("./attendance");
 var _employees = require("./employees");
 var _job_title = require("./job_title");
 var _leave = require("./leave");
+var _leave_detail = require("./leave_detail");
 var _projects = require("./projects");
 
 function initModels(sequelize) {
@@ -12,6 +13,7 @@ function initModels(sequelize) {
   var employees = _employees(sequelize, DataTypes);
   var job_title = _job_title(sequelize, DataTypes);
   var leave = _leave(sequelize, DataTypes);
+  var leave_detail = _leave_detail(sequelize, DataTypes);
   var projects = _projects(sequelize, DataTypes);
 
   atten_regularization.belongsTo(attendance, { as: "atten", foreignKey: "atten_id"});
@@ -22,6 +24,10 @@ function initModels(sequelize) {
   job_title.hasMany(projects, { as: "projects", foreignKey: "job_id"});
   attendance.belongsTo(leave, { as: "leave", foreignKey: "leave_id"});
   leave.hasMany(attendance, { as: "attendances", foreignKey: "leave_id"});
+  leave_detail.belongsTo(leave, { as: "emp", foreignKey: "emp_id"});
+  leave.hasMany(leave_detail, { as: "leave_details", foreignKey: "emp_id"});
+  leave_detail.belongsTo(leave, { as: "leave", foreignKey: "leave_id"});
+  leave.hasMany(leave_detail, { as: "leave_leave_details", foreignKey: "leave_id"});
   attendance.belongsTo(projects, { as: "project", foreignKey: "project_id"});
   projects.hasMany(attendance, { as: "attendances", foreignKey: "project_id"});
 
@@ -31,6 +37,7 @@ function initModels(sequelize) {
     employees,
     job_title,
     leave,
+    leave_detail,
     projects,
   };
 }

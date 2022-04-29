@@ -27,5 +27,6 @@ db.sequelize = sequelize;
 db.employees = require("../models/employees.js")(sequelize, DataTypes);
 db.leave = require("../models/leave.js")(sequelize, DataTypes);
 db.projects = require("../models/projects.js")(sequelize, DataTypes);
+db.leaveDetail = require("../models/leave_detail")(sequelize, DataTypes);
 
 module.exports = db;

@@ -105,7 +105,7 @@ exports.create = async (req, res, next) => {
 
   if(emp){
     return res.send({
-      message: "The Employee Alrady exisits!"
+      message: "The Employee Alrady exisits! Or Aadhar Number Alrady exisits "
     });
   }
   else{              
